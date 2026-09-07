@@ -1,0 +1,89 @@
+﻿/* ---- Logo ---- */
+.image {
+    width: 150px;
+    height: 150px;
+    display: inline-block; /* met le logo et le titre sur une même ligne */
+    vertical-align: middle; /* aligne verticalement les deux blocs */
+}
+
+/* ---- Titre ---- */
+h1 {
+    margin-right: 170px;
+    margin-left: 170px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ---- Menu ---- */
+nav {
+    float: left; /* fait "flotter" le menu à gauche */
+    width: 150px;
+    border: 2px solid #8c014c;
+    background-color: #8c014c;
+    color: white;
+}
+
+li {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+a {
+    color: chocolate;
+}
+
+/* ---- Corps de page ---- */
+section {
+    margin-left: 170px; /* décale le contenu à droite du menu */
+}
+
+/* ---- Tableaux ---- */
+table {
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+    table th, table td {
+        border: 1px solid #8c014c;
+        padding: 6px 10px;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #8c014c;
+        color: white;
+    }
+
+/* Titre de tableau centré sur toutes les colonnes */
+.titre-tableau {
+    text-align: center;
+}
+
+/* ---- Messages d'erreur ---- */
+.field-validation-error,
+.validation-summary-errors {
+    color: red;
+}
+
+    .validation-summary-errors ul {
+        list-style-type: square;
+    }
+
+/* ---- Couleurs de la colonne "Avis donné" ---- */
+.vert {
+    color: green;
+    font-weight: bold;
+}
+
+.rouge {
+    color: red;
+    font-weight: bold;
+}
+
+/* ---- Message de confirmation ---- */
+.confirmation {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
