@@ -1,0 +1,51 @@
+﻿@* Cette vue reçoit une liste d'objets Opinion depuis le contrôleur *@
+@model List<TPLOCAL1.Models.Opinion>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>HN - Liste des avis</title>
+    <link rel="stylesheet" href="~/resources/Index.css" />
+</head>
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Liste des avis</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Accueil</a></li>
+            <li><a href="/Home/Index/Form">Remplir le formulaire</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <table>
+            <tr>
+                @* Le titre est centré sur les 3 colonnes grâce à colspan="3" *@
+                <th colspan="3" class="titre-tableau">Liste</th>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Avis donné</th>
+            </tr>
+
+            @* Boucle foreach imposée par le sujet : une ligne par personne du fichier XML *@
+            @foreach (var avis in Model)
+            {
+                <tr>
+                    <td>@avis.LastName</td>
+                    <td>@avis.FirstName</td>
+                    @* La couleur dépend de la valeur lue dans le fichier : vert si "O", rouge sinon *@
+                    <td class="@(avis.OpinionGiven == "O" ? "vert" : "rouge")">
+                        @(avis.OpinionGiven == "O" ? "Oui" : "Non")
+                    </td>
+                </tr>
+            }
+        </table>
+    </section>
+</body>
+</html>

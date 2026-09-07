@@ -1,0 +1,19 @@
+﻿@* Le modèle est le nom de la page appelante, pour ne pas afficher un lien vers soi-même *@
+@model string
+
+<nav>
+    <ul>
+        @if (Model != "Accueil")
+        {
+            <li><a href="/Home/Index">Accueil</a></li>
+        }
+        @if (Model != "Formulaire")
+        {
+            <li><a href="/Home/Index/Form">Remplir le formulaire</a></li>
+        }
+        @if (Model != "Liste")
+        {
+            <li><a href="/Home/Index/OpinionList">Liste des avis</a></li>
+        }
+    </ul>
+</nav>

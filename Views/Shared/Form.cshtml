@@ -1,0 +1,144 @@
+﻿@* Déclare la classe C# dont les données seront utilisées dans cette page *@
+@model TPLOCAL1.Models.FormModel
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>HN - Formulaire</title>
+    <link rel="stylesheet" href="~/resources/Index.css" />
+</head>
+<body>
+    <header>
+        <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Formulaire d'évaluation de la formation</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Accueil</a></li>
+            <li><a href="/Home/Index/OpinionList">Liste des avis</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        @* BONUS : affiche d'un coup TOUS les messages d'erreur détectés *@
+        <div asp-validation-summary="All"></div>
+
+        @* Le formulaire appelle la méthode ValidationFormulaire du HomeController *@
+        <form asp-controller="Home" asp-action="ValidationFormulaire" method="post">
+
+            <!-- ============ Tableau 1 : Informations personnelles ============ -->
+            <table>
+                <tr>
+                    <th colspan="2" class="titre-tableau">Informations personnelles</th>
+                </tr>
+                <tr>
+                    <td>Nom</td>
+                    <td>
+                        <input asp-for="LastName" />
+                        <span asp-validation-for="LastName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prénom</td>
+                    <td>
+                        <input asp-for="FirstName" />
+                        <span asp-validation-for="FirstName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Genre</td>
+                    <td>
+                        <select asp-for="Gender">
+                            <option value="">Sélectionnez un genre</option>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                        <span asp-validation-for="Gender"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adresse</td>
+                    <td>
+                        <input asp-for="Address" />
+                        <span asp-validation-for="Address"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Code postal</td>
+                    <td>
+                        <input asp-for="PostalCode" />
+                        <span asp-validation-for="PostalCode"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ville</td>
+                    <td>
+                        <input asp-for="City" />
+                        <span asp-validation-for="City"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Adresse mail</td>
+                    <td>
+                        <input asp-for="Email" />
+                        <span asp-validation-for="Email"></span>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- ============ Tableau 2 : Informations sur la formation ============ -->
+            <table>
+                <tr>
+                    <th colspan="2" class="titre-tableau">Informations sur la formation suivie</th>
+                </tr>
+                <tr>
+                    <td>Date de début de formation</td>
+                    <td>
+                        @* type="date" affiche un calendrier dans le navigateur *@
+                        <input asp-for="TrainingStartDate" type="date" />
+                        <span asp-validation-for="TrainingStartDate"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Type de formation</td>
+                    <td>
+                        <select asp-for="TrainingType">
+                            <option value="">Sélectionnez une formation</option>
+                            <option value="Formation Cobol">Formation Cobol</option>
+                            <option value="Formation Objet">Formation Objet</option>
+                            <option value="Formation double compétence">Formation double compétence</option>
+                        </select>
+                        <span asp-validation-for="TrainingType"></span>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- ============ Tableau 3 : Avis sur la formation ============ -->
+            <table>
+                <tr>
+                    <th colspan="2" class="titre-tableau">Avis sur la formation</th>
+                </tr>
+                <tr>
+                    <td>Formation Cobol</td>
+                    <td>
+                        <input asp-for="CobolOpinion" />
+                        <span asp-validation-for="CobolOpinion"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Formation C#</td>
+                    <td>
+                        <input asp-for="CsharpOpinion" />
+                        <span asp-validation-for="CsharpOpinion"></span>
+                    </td>
+                </tr>
+            </table>
+
+            <button type="submit">Validation</button>
+        </form>
+    </section>
+</body>
+</html>
